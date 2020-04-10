@@ -7,6 +7,7 @@
 
 ## Group Members: 
 <br/>
+
 __Ryan Dickson__<br/>
 __Devin Milligan__<br/>
 __Philip Morlier__<br/>

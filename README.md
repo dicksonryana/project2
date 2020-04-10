@@ -1,14 +1,14 @@
-<h1>Project Working Title:</h1> 
+#Project Working Title:
 
-Guns, Germs, Netflix and Chill
+###Guns, Germs, Netflix and Chill
 
 
-Group Members:
+##Group Members:
 
-Ryan Dickson
-Devin Milligan
-Philip Morlier
-Kelly Priest
+__Ryan Dickson__
+__Devin Milligan__
+__Philip Morlier__
+__Kelly Priest__
 
 
 Our Objective:

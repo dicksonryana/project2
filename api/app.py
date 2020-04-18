@@ -15,179 +15,105 @@ app = Flask(__name__)
 @app.route("/")
 def welcome():
     return (
-        f"Available Routes:<br/>"
-        f"/api/v1.0/guns2019<br/>"
-        f"/api/v1.0/guns2020<br/>"
-        f"/api/v1.0/germs2019<br/>"
-        f"/api/v1.0/germs2020<br/>"
-        f"/api/v1.0/rec2019<br/>"
-        f"/api/v1.0/rec2020<br/>"
-        f"/api/v1.0/topic2019<br/>"
-        f"/api/v1.0/topic2020<br/>"
-        f"/api/v1.0/cdc_tweet<br/>"
+        f"/api/v1.0/trends2019<br/>"
+        f"/api/v1.0/trends2020<br/>"
         f"/api/v1.0/netflixTweet<br/>"
         f"/api/v1.0/nraTweet<br/>"
     )
 
-@app.route("/api/v1.0/guns2019")
-def guns2019():
-    result = engine.execute("select * from guns2019")
-    guns2019 = {}
-    guns2019date = []
-    guns2019ammunition = []
-    guns2019stores = []
-    guns2019ar15 = []
-    for row in result:
-        guns2019date.append(row[1])
-        guns2019ammunition.append(row[2])
-        guns2019stores.append(row[3])
-        guns2019ar15.append(row[4])
-    result.close()
-    guns2019['dates'] = guns2019date
-    guns2019['ammunition'] = guns2019ammunition
-    guns2019['stores'] = guns2019stores
-    guns2019['ar15'] = guns2019ar15
-
-    return jsonify(guns2019)
-
-@app.route("/api/v1.0/guns2020")
-def guns2020():
-    result = engine.execute("select * from guns2020")
-    guns2020 = {}
-    guns2020date = []
-    guns2020ammunition = []
-    guns2020stores = []
-    guns2020ar15 = []
-    for row in result:
-        guns2020date.append(row[1])
-        guns2020ammunition.append(row[2])
-        guns2020stores.append(row[3])
-        guns2020ar15.append(row[4])
-    result.close()
-    guns2020['dates'] = guns2020date
-    guns2020['ammunition'] = guns2020ammunition
-    guns2020['stores'] = guns2020stores
-    guns2020['ar15'] = guns2020ar15
-
-    return jsonify(guns2020)
-
-@app.route("/api/v1.0/germs2019")
-def germs2019():
-    result = engine.execute("select * from germs2019")
-    germs2019 = {}
-    dates = []
-    hs = []
-    bleach = []
-    tp = []
-    for row in result:
-        dates.append(row[1])
-        hs.append(row[2])
-        bleach.append(row[3])
-        tp.append(row[4])
-    result.close
-    germs2019['dates'] = dates
-    germs2019['hand sanitizer'] = hs
-    germs2019['bleach'] = bleach
-    germs2019['toilet paper'] = tp
-    return jsonify(germs2019)
-
-@app.route("/api/v1.0/germs2020")
-def germs2020():
-    result = engine.execute("select * from germs2020")
-    germs2020 = {}
-    dates = []
-    hs = []
-    bleach = []
-    tp = []
-    for row in result:
-        dates.append(row[1])
-        hs.append(row[2])
-        bleach.append(row[3])
-        tp.append(row[4])
-    result.close
-    germs2020['dates'] = dates
-    germs2020['hand sanitizer'] = hs
-    germs2020['bleach'] = bleach
-    germs2020['toilet paper'] = tp
-    return jsonify(germs2020)
-
-@app.route("/api/v1.0/rec2019")
-def rec2019():
-    result = engine.execute("select * from rec2019")
-    rec2019 = {}
-    date = []
-    netflix = []
-    weed = []
-    beer = []
-    for row in result:
-        date.append(row[1])
-        netflix.append(row[2])
-        weed.append(row[3])
-        beer.append(row[4])
-    result.close()
-    rec2019["date"] = date 
-    rec2019["netflix"] = netflix 
-    rec2019["weed"] = weed 
-    rec2019["beer"] = beer
-    return jsonify(rec2019)
-
-@app.route("/api/v1.0/rec2020")
-def rec2020():
-    result = engine.execute("select * from rec2020")
-    rec2020 = {}
-    date = []
-    netflix = []
-    weed = []
-    beer = []
-    for row in result:
-        date.append(row[1])
-        netflix.append(row[2])
-        weed.append(row[3])
-        beer.append(row[4])
-    result.close()
-    rec2020["date"] = date 
-    rec2020["netflix"] = netflix 
-    rec2020["weed"] = weed 
-    rec2020["beer"] = beer
-    return jsonify(rec2020)
-
-@app.route("/api/v1.0/topic2019")
-def topic2019():
-    result = engine.execute("select * from topic2019")
-    topic2019 = {}
+@app.route("/api/v1.0/trends2019")
+def trends2019():
+    result = engine.execute("SELECT * FROM trends2019")
+    trends2019={}
     date = []
     guns = []
-    germs = []
-    recreation = []
+    virus = []
+    boredom = []
+    ammo = []
+    gun_stores = []
+    ar15=[]
+    disinfectant=[]
+    bleach=[]
+    tp=[]
+    netflix=[]
+    porn=[]
+    diy=[]
     for row in result:
         date.append(row[1])
         guns.append(row[2])
-        germs.append(row[3])
-        recreation.append(row[4])
-    topic2019["date"] = date
-    topic2019["guns"] = guns    
-    topic2019["germs"] = germs    
-    topic2019["recreation"] = recreation
-    return jsonify(topic2019)
+        virus.append(row[3])
+        boredom.append(row[4])
+        ammo.append(row[5])
+        gun_stores.append(row[6])
+        ar15.append(row[7])
+        disinfectant.append(row[8])
+        bleach.append(row[9])
+        tp.append(row[10])
+        netflix.append(row[11])
+        porn.append(row[12])
+        diy.append(row[13])
+    result.close()
+    trends2019["date"] = date
+    trends2019["guns"] = guns   
+    trends2019["virus"] = virus   
+    trends2019["boredom"] = boredom   
+    trends2019["ammo"] = ammo   
+    trends2019["gun_stores"] = gun_stores   
+    trends2019["ar15"] = ar15   
+    trends2019["disinfectant"] = disinfectant   
+    trends2019["bleach"] = bleach   
+    trends2019["tp"] = tp   
+    trends2019["netflix"] = netflix   
+    trends2019["porn"] = porn   
+    trends2019["diy"] = diy
+    return jsonify(trends2019)
 
-@app.route("/api/v1.0/topic2020")
-def topic2020():
-    result = engine.execute("select * from topic2020")
-    topic2020 = {}
+@app.route("/api/v1.0/trends2020")
+def trends2020():
+    result = engine.execute("SELECT * FROM trends2020")
+    trends2020={}
     date = []
     guns = []
-    germs = []
-    recreation = []
+    virus = []
+    boredom = []
+    ammo = []
+    gun_stores = []
+    ar15=[]
+    disinfectant=[]
+    bleach=[]
+    tp=[]
+    netflix=[]
+    porn=[]
+    diy=[]
     for row in result:
         date.append(row[1])
         guns.append(row[2])
-        germs.append(row[3])
-        recreation.append(row[4])
-    topic2020["date"] = date
-    topic2020["guns"] = guns    
-    topic2020["germs"] = germs    
-    topic2020["recreation"] = recreation
-    return jsonify(topic2020)
+        virus.append(row[3])
+        boredom.append(row[4])
+        ammo.append(row[5])
+        gun_stores.append(row[6])
+        ar15.append(row[7])
+        disinfectant.append(row[8])
+        bleach.append(row[9])
+        tp.append(row[10])
+        netflix.append(row[11])
+        porn.append(row[12])
+        diy.append(row[13])
+    result.close()
+    trends2020["date"] = date
+    trends2020["guns"] = guns   
+    trends2020["virus"] = virus   
+    trends2020["boredom"] = boredom   
+    trends2020["ammo"] = ammo   
+    trends2020["gun_stores"] = gun_stores   
+    trends2020["ar15"] = ar15   
+    trends2020["disinfectant"] = disinfectant   
+    trends2020["bleach"] = bleach   
+    trends2020["tp"] = tp   
+    trends2020["netflix"] = netflix   
+    trends2020["porn"] = porn   
+    trends2020["diy"] = diy
+    return jsonify(trends2020)
 
 @app.route("/api/v1.0/cdc_tweet")
 def cdc_tweet():

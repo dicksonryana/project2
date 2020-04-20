@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- <script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};  
+</script> -->
+<script type = text/javascript>
+var tweets = $.getJSON("http://127.0.0.1:5000/api/v1.0/nraTweet")
+
+console.log(tweets)
+
+
+</script>
+
+</head>
+<body>
+
+	<script>
+	
+		
+
+	</script>
+</body>
+</html>

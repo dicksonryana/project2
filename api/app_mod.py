@@ -23,7 +23,7 @@ def welcome():
 
 @app.route('/test')
 def test():
-    return send_from_directory("../test_kit/static_test/", "tom_test.html")
+    return send_from_directory("", "test.html")
 
 @app.route("/api/v1.0/trends2019")
 def trends2019():

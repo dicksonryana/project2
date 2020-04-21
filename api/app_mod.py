@@ -17,11 +17,12 @@ cors = CORS(app)
 @app.route("/")
 def welcome():
     return (
+        f"Available Endpoints: <br/>"
         f"/api/v1.0/trends2019<br/>"
         f"/api/v1.0/trends2020<br/>"
         f"/api/v1.0/netflixTweet<br/>"
         f"/api/v1.0/nraTweet<br/>"
-        f"/api/v1.0/cdcTweet<br/>"
+        f"/api/v1.0//api/v1.0/cdc_tweet<br/>"
     )
 
 @app.route('/test')

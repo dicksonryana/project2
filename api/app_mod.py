@@ -4,13 +4,15 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory, request
+from flask_cors import CORS
 
 #DB engine setup
 engine = create_engine("sqlite:///../Database_stuff/trends.sqlite")
 conn = engine.connect()
 
 app = Flask(__name__)
+cors = CORS(app)
 
 @app.route("/")
 def welcome():
@@ -19,7 +21,12 @@ def welcome():
         f"/api/v1.0/trends2020<br/>"
         f"/api/v1.0/netflixTweet<br/>"
         f"/api/v1.0/nraTweet<br/>"
+        f"/api/v1.0/cdcTweet<br/>"
     )
+
+@app.route('/test')
+def test():
+    return send_from_directory("", "test.html")
 
 @app.route("/api/v1.0/trends2019")
 def trends2019():

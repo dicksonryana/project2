@@ -45,26 +45,25 @@ function init() {
     var dataset = dropdownMenu.property("value");
   
     // Initialize x and y arrays
-    var x = [];
+  
     var y = [];
+    var k = 0;
     var i = 0;
   
     if (dataset === 'virus') {
       d3.csv("2019_data.csv").then(function(data19){
         data19.forEach(function(d){
           y[i] = +d.virus;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
           i++;
         })
   
         Plotly.restyle("plot_19", "y", [y])
       })
-      y = [];
+    
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d.virus;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
-          i++;
+          y[k] = +d.virus;
+          k++;
         })
         Plotly.restyle("plot_20", "y", [y])
       })
@@ -80,11 +79,11 @@ function init() {
   
         Plotly.restyle("plot_19", "y", [y])
       })
-      y = [];
+      
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d.disinfectant;
-          i++;
+          y[k] = +d.disinfectant;
+          k++;
         })
   
         Plotly.restyle("plot_20", "y", [y])
@@ -101,11 +100,11 @@ function init() {
   
         Plotly.restyle("plot_19", "y", [y])
       })
-      y = [];
+     
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d.bleach;
-          i++;
+          y[k] = +d.bleach;
+          k++;
         })
 
         Plotly.restyle("plot_20", "y", [y])
@@ -120,13 +119,15 @@ function init() {
         })
         Plotly.restyle("plot_19", "y", [y])
       })
-      y = [];
+      
       d3.csv("2020_data.csv").then(function(data20){
+        console.log("wazzup")
         data20.forEach(function(d){
-          y[i] = +d["toilet paper"];
-          i++;
+          y[k] = +d["toilet paper"];
+          k++;
+          console.log("hello");
         })
-  
+
         Plotly.restyle("plot_20", "y", [y])
       })
 

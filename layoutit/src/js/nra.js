@@ -1,5 +1,5 @@
 function pageRedirectgun() {
-   window.location.href = "file:///C:/Users/phili/Documents/GitHub/project2/layoutit/src/last_night_index.html";
+   window.location.href = "../index.html";
 };   
 
 jQuery.when(
@@ -11,14 +11,3 @@ jQuery.when(
     });
 });
 
-// <script>
-//     for (var i = 0; i <= tweets.length; i++) {
-//       document.write('<div>' + i.toString() + '</div>');
-//     }
-// </script>
-//     // $(document).ready(function(){
-    //     var supercarObject = {"brand": "Lamborghini", "model" : "Huracan", "origin": "Italy"};
-    //     $.each(supercarObject, function(key, value){
-    //         $("#result").append(value + '<td>');
-    //     });
-    // });

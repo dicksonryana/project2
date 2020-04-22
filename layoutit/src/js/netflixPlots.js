@@ -45,7 +45,6 @@ function init() {
     var dataset = dropdownMenu.property("value");
   
     // Initialize x and y arrays
-    var x = [];
     var y = [];
     var i = 0;
   
@@ -53,21 +52,20 @@ function init() {
       d3.csv("2019_data.csv").then(function(data19){
         data19.forEach(function(d){
           y[i] = +d.boredom;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
+
           i++;
         })
-  
-        Plotly.restyle("plot_19", "x", [x])
+
         Plotly.restyle("plot_19", "y", [y])
       })
+      y = [];
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
           y[i] = +d.boredom;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
+  
           i++;
         })
-  
-        Plotly.restyle("plot_20", "x", [x])
+ 
         Plotly.restyle("plot_20", "y", [y])
       })
 
@@ -77,21 +75,18 @@ function init() {
       d3.csv("2019_data.csv").then(function(data19){
         data19.forEach(function(d){
           y[i] = +d.netflix;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
           i++;
         })
   
-        Plotly.restyle("plot_19", "x", [x])
         Plotly.restyle("plot_19", "y", [y])
       })
+      y = [];
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
           y[i] = +d.netflix;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
           i++;
         })
   
-        Plotly.restyle("plot_20", "x", [x])
         Plotly.restyle("plot_20", "y", [y])
       })
       
@@ -101,21 +96,18 @@ function init() {
       d3.csv("2019_data.csv").then(function(data19){
         data19.forEach(function(d){
           y[i] = +d.porn;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
           i++;
         })
   
-        Plotly.restyle("plot_19", "x", [x])
         Plotly.restyle("plot_19", "y", [y])
       })
+      y = [];
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
           y[i] = +d.porn;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
           i++;
         })
   
-        Plotly.restyle("plot_20", "x", [x])
         Plotly.restyle("plot_20", "y", [y])
       })
     }
@@ -128,17 +120,15 @@ function init() {
           i++;
         })
   
-        Plotly.restyle("plot_19", "x", [x])
         Plotly.restyle("plot_19", "y", [y])
       })
+      y = [];
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
           y[i] = +d.diy;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
           i++;
         })
   
-        Plotly.restyle("plot_20", "x", [x])
         Plotly.restyle("plot_20", "y", [y])
       })
 

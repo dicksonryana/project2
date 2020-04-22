@@ -1,5 +1,6 @@
 // Initializes the page with a default plot
 function init() {
+ 
     d3.csv("2019_data.csv").then(function(data19){
         var dates = [];
         var values = [];
@@ -44,55 +45,49 @@ function init() {
     // Assign the value of the dropdown menu option to a variable
     var dataset = dropdownMenu.property("value");
   
-    // Initialize x and y arrays
-    var x = [];
+    // Initialize y arrays
     var y = [];
+    var x = [];
     var i = 0;
   
     if (dataset === 'guns') {
       d3.csv("2019_data.csv").then(function(data19){
         data19.forEach(function(d){
           y[i] = +d.guns;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
           i++;
         })
-  
-        Plotly.restyle("plot_19", "x", [x])
         Plotly.restyle("plot_19", "y", [y])
       })
+    
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d.guns;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
+          x[i] = +d.guns;
           i++;
+         
         })
-  
-        Plotly.restyle("plot_20", "x", [x])
-        Plotly.restyle("plot_20", "y", [y])
+        console.log(x);
+        Plotly.restyle("plot_20", "y", [x])
       })
 
     }
   
     if (dataset === 'ammo') {
+      console.log("ammo if");
       d3.csv("2019_data.csv").then(function(data19){
+
         data19.forEach(function(d){
-          y[i] = +d.guns;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
+          y[i] = +d.ammo;
           i++;
         })
-  
-        Plotly.restyle("plot_19", "x", [x])
         Plotly.restyle("plot_19", "y", [y])
       })
+  
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d.guns;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
+          x[i] = +d.ammo;
           i++;
         })
-  
-        Plotly.restyle("plot_20", "x", [x])
-        Plotly.restyle("plot_20", "y", [y])
+        Plotly.restyle("plot_20", "y", [x])
       })
       
     }
@@ -101,45 +96,38 @@ function init() {
       d3.csv("2019_data.csv").then(function(data19){
         data19.forEach(function(d){
           y[i] = +d.ar15;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
           i++;
         })
-  
-        Plotly.restyle("plot_19", "x", [x])
         Plotly.restyle("plot_19", "y", [y])
       })
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d.ar15;
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
+          x[i] = +d.ar15;
           i++;
         })
   
-        Plotly.restyle("plot_20", "x", [x])
-        Plotly.restyle("plot_20", "y", [y])
+        Plotly.restyle("plot_20", "y", [x])
       })
     }
   
     if (dataset === 'gun stores') {
+      console.log("gun stores if");
       d3.csv("2019_data.csv").then(function(data19){
         data19.forEach(function(d){
           y[i] = +d["gun stores"];
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
           i++;
         })
   
-        Plotly.restyle("plot_19", "x", [x])
         Plotly.restyle("plot_19", "y", [y])
       })
+    
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d["gun stores"];
-          x[i] = d3.timeParse("%Y-%m-%d")(d.date);
+          x[i] = +d["gun stores"];
           i++;
         })
-  
-        Plotly.restyle("plot_20", "x", [x])
-        Plotly.restyle("plot_20", "y", [y])
+
+        Plotly.restyle("plot_20", "y", [x])
       })
 
     }

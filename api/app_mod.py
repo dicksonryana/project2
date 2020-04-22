@@ -22,7 +22,7 @@ def welcome():
         f"/api/v1.0/trends2020<br/>"
         f"/api/v1.0/netflixTweet<br/>"
         f"/api/v1.0/nraTweet<br/>"
-        f"/api/v1.0//api/v1.0/cdc_tweet<br/>"
+        f"/api/v1.0/cdcTweet<br/>"
     )
 
 @app.route('/test')
@@ -123,7 +123,7 @@ def trends2020():
     trends2020["diy"] = diy
     return jsonify(trends2020)
 
-@app.route("/api/v1.0/cdc_tweet")
+@app.route("/api/v1.0/cdcTweet")
 def cdc_tweet():
     result = engine.execute("select * from cdcTweet")
     cdcTweet= {}

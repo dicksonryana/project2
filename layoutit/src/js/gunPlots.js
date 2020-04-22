@@ -14,8 +14,14 @@ function init() {
             x: dates,
             y: values
         }];
+        var layout = {
+          title: "2019 Seach Trends",
+          yaxis: {
+            range: [0, 110]
+          }
+        }
 
-        Plotly.newPlot("plot_19", data)
+        Plotly.newPlot("plot_19", data, layout)
     })
 
     d3.csv("2020_data.csv").then(function(data20){
@@ -31,7 +37,13 @@ function init() {
           x: dates,
           y: values
         }];
-        Plotly.newPlot("plot_20", data)
+        var layout = {
+          title: "2020 Search Trends",
+          yaxis: {
+            range: [0, 110]
+          }
+        }
+        Plotly.newPlot("plot_20", data, layout)
     })
   }
   
@@ -47,7 +59,7 @@ function init() {
   
     // Initialize y arrays
     var y = [];
-    var x = [];
+    var k = 0;
     var i = 0;
   
     if (dataset === 'guns') {
@@ -61,12 +73,11 @@ function init() {
     
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          x[i] = +d.guns;
-          i++;
+          y[k] = +d.guns;
+          k++;
          
         })
-        console.log(x);
-        Plotly.restyle("plot_20", "y", [x])
+        Plotly.restyle("plot_20", "y", [y])
       })
 
     }
@@ -84,10 +95,10 @@ function init() {
   
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          x[i] = +d.ammo;
-          i++;
+          y[k] = +d.ammo;
+          k++;
         })
-        Plotly.restyle("plot_20", "y", [x])
+        Plotly.restyle("plot_20", "y", [y])
       })
       
     }
@@ -102,11 +113,11 @@ function init() {
       })
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          x[i] = +d.ar15;
-          i++;
+          y[k] = +d.ar15;
+          k++;
         })
   
-        Plotly.restyle("plot_20", "y", [x])
+        Plotly.restyle("plot_20", "y", [y])
       })
     }
   
@@ -123,11 +134,11 @@ function init() {
     
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          x[i] = +d["gun stores"];
-          i++;
+          y[k] = +d["gun stores"];
+          k++;
         })
 
-        Plotly.restyle("plot_20", "y", [x])
+        Plotly.restyle("plot_20", "y", [y])
       })
 
     }
@@ -136,4 +147,8 @@ function init() {
   }
   
   init();
+
+  document.getElementById("home").addEventListener("click", () =>{
+    window.location = "index.html"
+  })
   

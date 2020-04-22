@@ -13,8 +13,13 @@ function init() {
             x: dates,
             y: values
         }];
-
-        Plotly.newPlot("plot_19", data)
+        var layout = {
+          title: "2019 Search Trends",
+          yaxis: {
+            range: [0, 110]
+          }
+        }
+        Plotly.newPlot("plot_19", data, layout)
     })
 
     d3.csv("2020_data.csv").then(function(data20){
@@ -30,7 +35,13 @@ function init() {
           x: dates,
           y: values
         }];
-        Plotly.newPlot("plot_20", data)
+        var layout = {
+          title: "2020 Search Trends",
+          yaxis: {
+            range: [0, 110]
+          }
+        }
+        Plotly.newPlot("plot_20", data, layout)
     })
   }
   
@@ -46,6 +57,7 @@ function init() {
   
     // Initialize x and y arrays
     var y = [];
+    var k = 0;
     var i = 0;
   
     if (dataset === 'boredom') {
@@ -58,12 +70,11 @@ function init() {
 
         Plotly.restyle("plot_19", "y", [y])
       })
-      y = [];
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d.boredom;
+          y[k] = +d.boredom;
   
-          i++;
+          k++;
         })
  
         Plotly.restyle("plot_20", "y", [y])
@@ -80,11 +91,10 @@ function init() {
   
         Plotly.restyle("plot_19", "y", [y])
       })
-      y = [];
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d.netflix;
-          i++;
+          y[k] = +d.netflix;
+          k++;
         })
   
         Plotly.restyle("plot_20", "y", [y])
@@ -101,11 +111,11 @@ function init() {
   
         Plotly.restyle("plot_19", "y", [y])
       })
-      y = [];
+    
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d.porn;
-          i++;
+          y[k] = +d.porn;
+          k++;
         })
   
         Plotly.restyle("plot_20", "y", [y])
@@ -122,11 +132,11 @@ function init() {
   
         Plotly.restyle("plot_19", "y", [y])
       })
-      y = [];
+     
       d3.csv("2020_data.csv").then(function(data20){
         data20.forEach(function(d){
-          y[i] = +d.diy;
-          i++;
+          y[k] = +d.diy;
+          k++;
         })
   
         Plotly.restyle("plot_20", "y", [y])
@@ -138,3 +148,7 @@ function init() {
   }
   
   init();
+
+  document.getElementById("home").addEventListener("click", () =>{
+    window.location = "index.html"
+  })

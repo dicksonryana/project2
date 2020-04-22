@@ -13,8 +13,13 @@ function init() {
             x: dates,
             y: values
         }];
-
-        Plotly.newPlot("plot_19", data)
+        var layout = {
+          title: "2019 Search Trends",
+          yaxis: {
+            range: [0, 110]
+          }
+        }
+        Plotly.newPlot("plot_19", data, layout)
     })
 
     d3.csv("2020_data.csv").then(function(data20){
@@ -30,7 +35,13 @@ function init() {
           x: dates,
           y: values
         }];
-        Plotly.newPlot("plot_20", data)
+        var layout = {
+          title: "2020 Search Trends",
+          yaxis: {
+            range: [0, 110]
+          }
+        }
+        Plotly.newPlot("plot_20", data, layout)
     })
   }
   
@@ -56,8 +67,9 @@ function init() {
           y[i] = +d.virus;
           i++;
         })
-  
+        
         Plotly.restyle("plot_19", "y", [y])
+        
       })
     
       d3.csv("2020_data.csv").then(function(data20){
@@ -65,7 +77,9 @@ function init() {
           y[k] = +d.virus;
           k++;
         })
+        
         Plotly.restyle("plot_20", "y", [y])
+        
       })
 
     }
@@ -76,8 +90,9 @@ function init() {
           y[i] = +d.disinfectant;
           i++;
         })
-  
+       
         Plotly.restyle("plot_19", "y", [y])
+      
       })
       
       d3.csv("2020_data.csv").then(function(data20){
@@ -85,8 +100,9 @@ function init() {
           y[k] = +d.disinfectant;
           k++;
         })
-  
+        
         Plotly.restyle("plot_20", "y", [y])
+      
       })
       
     }
@@ -97,7 +113,7 @@ function init() {
           y[i] = +d.bleach;
           i++;
         })
-  
+       
         Plotly.restyle("plot_19", "y", [y])
       })
      
@@ -106,7 +122,7 @@ function init() {
           y[k] = +d.bleach;
           k++;
         })
-
+      
         Plotly.restyle("plot_20", "y", [y])
       })
     }
@@ -117,6 +133,7 @@ function init() {
           y[i] = +d["toilet paper"];
           i++;
         })
+       
         Plotly.restyle("plot_19", "y", [y])
       })
       
@@ -127,7 +144,7 @@ function init() {
           k++;
           console.log("hello");
         })
-
+        
         Plotly.restyle("plot_20", "y", [y])
       })
 
@@ -137,3 +154,7 @@ function init() {
   }
   
   init();
+
+  document.getElementById("home").addEventListener("click", () =>{
+    window.location = "index.html"
+  })

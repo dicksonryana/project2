@@ -7,6 +7,6 @@ document.getElementById("vBtn").addEventListener("click", () => {
 document.getElementById("bBtn").addEventListener("click", () => {
   window.location = "boredPlots.html"
 })
- 
+
 
 
